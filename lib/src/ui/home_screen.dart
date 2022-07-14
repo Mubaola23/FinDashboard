@@ -10,26 +10,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int selectedIndex = 0;
+
+  void onItemSelected(int index) {
+    setState(() {
+      selectedIndex = index;
+      print(selectedIndex);
+    });
+  }
+
+  List<Widget> _pages = <Widget>[
+    const DashboardScreen(),
+    Text("2"),
+    Text("3"),
+    Text("4"),
+    Text("5"),
+  ];
+  Color appColor = const Color(0xff151534);
   @override
   Widget build(BuildContext context) {
-    int selectedIndex = 0;
-
-    void onItemSelected(int index) {
-      setState(() {
-        selectedIndex = index;
-        print(selectedIndex);
-      });
-    }
-
-    List<Widget> _pages = <Widget>[
-      const DashboardScreen(),
-      Text("2"),
-      Text("3"),
-      Text("4"),
-      Text("5"),
-    ];
-    Color appColor = const Color(0xff151534);
-
     return Scaffold(
       body: Center(
         child: _pages.elementAt(selectedIndex), //New
